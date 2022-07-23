@@ -1,4 +1,4 @@
-package org.izhurko.collectionapi;
+package org.izhurko.collectionapi.task2;
 
 import java.util.Arrays;
 import java.util.Collections;
