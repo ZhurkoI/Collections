@@ -1,7 +1,6 @@
 package org.izhurko.collectionapi.task1;
 
 import java.util.Arrays;
-import java.util.List;
 
 class Main {
 
@@ -10,8 +9,8 @@ class Main {
         int intendedNumber = 9;
 
         ArrayProcessor arrayProcessor = new ArrayProcessor();
-        List<Integer> indices = arrayProcessor.findIndices(initArray, intendedNumber);
+        int[] indices = arrayProcessor.findIndices(initArray, intendedNumber);
         System.out.println("Initial array = " + Arrays.toString(initArray));
-        System.out.println("Result = " + indices);
+        System.out.println("Result = " + Arrays.toString(indices));
     }
 }

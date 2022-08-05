@@ -1,24 +1,24 @@
 package org.izhurko.collectionapi.task1;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
+import java.util.HashMap;
+import java.util.Map;
 
 class ArrayProcessor {
 
-    public List<Integer> findIndices(Integer[] array, int intendedNumber) {
-        List<Integer> list = new ArrayList<>(Arrays.asList(array));  // converting initial array to a MUTABLE list
-        int diff;
-        
-        List<Integer> result = new ArrayList<>();
-        for (Integer element : list) {
-            diff = intendedNumber - element;
-            if (list.contains(diff)) {
-                result.add(list.indexOf(element));
-                result.add(list.indexOf(diff));
-                break;
+    public int[] findIndices(Integer[] array, int intendedNumber) {
+        Map<Integer, Integer> map = new HashMap<>();
+
+        for (int i = 0; i < array.length; i++) {
+            map.put(array[i], i);
+        }
+
+        for (int i = 0; i < array.length; i++) {
+            int requiredNumber = intendedNumber - array[i];  // 9-2 = 7
+
+            if (map.containsKey(requiredNumber) && map.get(requiredNumber) != i) {
+                return new int[]{i, map.get(requiredNumber)};
             }
         }
-        return result;
+        throw new IllegalArgumentException("No solution");
     }
 }
